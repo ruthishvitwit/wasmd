@@ -909,7 +909,7 @@ func (p UnpinCodesProposal) ValidateBasic() error {
 	}
 	for _, num1 := range p.CodeIDs {
 		if num1 == 0 {
-			return sdkerrors.Wrap(ErrZero, "0's not allowed")
+			return sdkerrors.Wrap(ErrZero, "0 not accepted")
 
 		}
 		for _, num2 := range p.CodeIDs {
