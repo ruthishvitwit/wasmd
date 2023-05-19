@@ -218,6 +218,9 @@ func (p InstantiateContractProposal) ValidateBasic() error {
 	if p.CodeID == 0 {
 		return sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "code id is required")
 	}
+	if p.Label != strings.TrimSpace(p.Label) {
+		p.Label = strings.TrimSpace(p.Label)
+	}
 
 	if err := ValidateLabel(p.Label); err != nil {
 		return err
